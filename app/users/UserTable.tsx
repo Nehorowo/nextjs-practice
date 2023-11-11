@@ -13,7 +13,7 @@ interface Props {
 }
 
 const UserTable = async ({ sortBy }: Props) => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/xxxusers", {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     cache: "no-store",
   });
 
@@ -37,11 +37,11 @@ const UserTable = async ({ sortBy }: Props) => {
       </thead>
       <tbody>
         {sortedUsers.map((user, index: number) => (
-          <tr key={`${index}_${user.id}`}>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-          </tr>
-        ))}
+            <tr key={`${index}_${user.id}`}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
