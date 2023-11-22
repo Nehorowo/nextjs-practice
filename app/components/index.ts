@@ -1,3 +1,5 @@
 import ProductCard from "./ProductCard";
+import HeavyComponent from "./HeavyComponent";
 
-export default ProductCard;
+export { ProductCard };
+export { HeavyComponent };
