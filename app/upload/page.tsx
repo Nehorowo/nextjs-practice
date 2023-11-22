@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import { CldUploadWidget, CldImage } from "next-cloudinary";
 
 interface CloudinaryResult {
@@ -35,7 +35,7 @@ const UploadPage = () => {
         }}
       >
         {({ open }) => {
-          const handleOnClick = (e) => {
+          const handleOnClick = (e: SyntheticEvent) => {
             e.preventDefault();
             open();
           };

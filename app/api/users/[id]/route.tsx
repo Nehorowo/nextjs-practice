@@ -7,7 +7,7 @@ export const GET = async (
   { params }: { params: { id: string } }
 ) => {
   const user = await prisma.user.findUnique({
-    where: { id: Number(params.id) },
+    where: { id: params.id },
   });
   // Fetch data from a db
   // If not found, return 404 error
@@ -21,7 +21,7 @@ export const GET = async (
 
 export const PUT = async (
   request: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: string } }
 ) => {
   // Validate the request body
   // If it's invalid, return 400 (Bad Request)
@@ -37,7 +37,7 @@ export const PUT = async (
   }
 
   const user = await prisma.user.findUnique({
-    where: { id: Number(params.id) },
+    where: { id: params.id },
   });
 
   if (!user) {
@@ -57,14 +57,14 @@ export const PUT = async (
 
 export const DELETE = async (
   request: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: string } }
 ) => {
   // Fetch use from db
   // If user is not found, return 404
   // If found, delete the user from db
   // Return 200
   const user = await prisma.user.findUnique({
-    where: { id: Number(params.id) },
+    where: { id: params.id },
   });
 
   if (!user) {
